@@ -1,0 +1,44 @@
+{
+  "overall_latency_improvement": -0.2092050209205023,
+  "resource_utilization_improvement": 12.5,
+  "slice_optimizations": {
+    "urllc": {
+      "base_res_rsrv": 0.2,
+      "opt_res_rsrv": 0.1,
+      "base_bw_guar": 5,
+      "opt_bw_guar": 2,
+      "res_rsrv_improvement": 50.0,
+      "bw_guar_improvement": 60.0
+    },
+    "iot": {
+      "base_res_rsrv": 0.1,
+      "opt_res_rsrv": 0.05,
+      "base_bw_guar": 10,
+      "opt_bw_guar": 5,
+      "res_rsrv_improvement": 50.0,
+      "bw_guar_improvement": 50.0
+    },
+    "data": {
+      "base_res_rsrv": 0.05,
+      "opt_res_rsrv": 0.0,
+      "base_bw_guar": 1000,
+      "opt_bw_guar": 500,
+      "res_rsrv_improvement": 100.0,
+      "bw_guar_improvement": 50.0
+    }
+  },
+  "slice_latencies": {
+    "urllc": {
+      "base": 0,
+      "optimized": 0
+    },
+    "iot": {
+      "base": 0,
+      "optimized": 0
+    },
+    "data": {
+      "base": 0,
+      "optimized": 0
+    }
+  }
+}

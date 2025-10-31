@@ -1,0 +1,103 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --accent-color: #e74c3c;
+    --dark-color: #2c3e50;
+    --light-color: #ecf0f1;
+    
+    /* Slice-specific colors */
+    --urllc-color: #4e73df;
+    --iot-color: #1cc88a;
+    --data-color: #f6c23e;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    padding-bottom: 30px;
+}
+
+.card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.card-header {
+    font-weight: 500;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.img-fluid:hover {
+    transform: scale(1.02);
+}
+
+/* Tab styling */
+.nav-tabs .nav-link {
+    color: var(--dark-color);
+    font-weight: 500;
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--primary-color);
+    font-weight: 600;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+/* Table styling */
+.table th {
+    background-color: var(--dark-color);
+    color: white;
+}
+
+/* Simulation results table styling */
+#simulation-results-table tr.slice-urllc td:nth-child(2) {
+    background-color: rgba(78, 115, 223, 0.1);
+    font-weight: 500;
+}
+
+#simulation-results-table tr.slice-iot td:nth-child(2) {
+    background-color: rgba(28, 200, 138, 0.1);
+    font-weight: 500;
+}
+
+#simulation-results-table tr.slice-data td:nth-child(2) {
+    background-color: rgba(246, 194, 62, 0.1);
+    font-weight: 500;
+}
+
+/* Highlight optimal values */
+.optimal-value {
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+/* Print styles */
+@media print {
+    .btn-group, .nav-tabs, .modal, .card-header {
+        display: none !important;
+    }
+    
+    .tab-pane {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    .card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+    
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+}

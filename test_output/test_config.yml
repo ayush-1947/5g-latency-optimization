@@ -1,0 +1,180 @@
+base_stations:
+- capacity_bandwidth: 1000000
+  coverage: 600
+  ratios:
+    data: 0.5
+    iot: 0.4
+    urllc: 0.1
+  x: 0
+  y: 0
+- capacity_bandwidth: 1400000
+  coverage: 700
+  ratios:
+    data: 0.7
+    iot: 0.2
+    urllc: 0.1
+  x: 1000
+  y: 500
+- capacity_bandwidth: 700000
+  coverage: 500
+  ratios:
+    data: 0.66
+    iot: 0.24
+    urllc: 0.1
+  x: -500
+  y: -500
+- capacity_bandwidth: 1200000
+  coverage: 800
+  ratios:
+    data: 0.8
+    iot: 0.1
+    urllc: 0.1
+  x: -750
+  y: 850
+- capacity_bandwidth: 1000000
+  coverage: 900
+  ratios:
+    data: 0.7
+    iot: 0.2
+    urllc: 0.1
+  x: 450
+  y: -950
+- capacity_bandwidth: 120000
+  coverage: 400
+  ratios:
+    data: 0.89
+    iot: 0.01
+    urllc: 0.1
+  x: -1300
+  y: -1300
+- capacity_bandwidth: 100000
+  coverage: 357
+  ratios:
+    data: 0.4
+    iot: 0.5
+    urllc: 0.1
+  x: 1100
+  y: 1300
+clients:
+  location:
+    x:
+      distribution: normal
+      params:
+      - 0
+      - 600
+    y:
+      distribution: normal
+      params:
+      - 0
+      - 600
+  usage:
+    distribution: randint
+    params:
+    - 0
+    - 100000
+  usage_frequency:
+    distribution: randint
+    divide_scale: 1000000
+    params:
+    - 0
+    - 100000
+mobility_patterns:
+  basic:
+    client_weight: 0.3
+    distribution: randint
+    params:
+    - -1
+    - 1
+  high_mobility:
+    client_weight: 0.2
+    distribution: normal
+    params:
+    - 0
+    - 3
+  normal_btw_0_1000:
+    client_weight: 0.5
+    distribution: normal
+    params:
+    - 0
+    - 1
+settings:
+  dynamic_allocation: true
+  handover_optimization: true
+  latency_tracking: true
+  limit_closest_base_stations: 7
+  log_file: output.txt
+  logging: false
+  num_clients: 1000
+  plotting_params:
+    latency_heatmap: true
+    plot_file: output.png
+    plot_file_dpi: 1000
+    plot_save: true
+    plot_show: true
+    plotting: true
+    scatter_size: 15
+  predictive_allocation: true
+  simulation_time: 10
+  statistics_params:
+    cooldown_ratio: 0.05
+    warmup_ratio: 0.05
+    x:
+      max: 1980
+      min: 0
+    y:
+      max: 1980
+      min: 0
+slices:
+  data:
+    bandwidth_guaranteed: 1000
+    bandwidth_max: 50000000
+    client_weight: 0.5
+    delay_tolerance: 2000
+    latency_weight: 0.2
+    qos_class: 4
+    resource_reservation: 0.05
+    threshold: 0.87
+    usage_pattern:
+      distribution: randint
+      params:
+      - 4000000
+      - 800000000
+  iot:
+    bandwidth_guaranteed: 10
+    bandwidth_max: 10000000
+    client_weight: 0.5
+    delay_tolerance: 10
+    latency_weight: 0.8
+    qos_class: 2
+    resource_reservation: 0.1
+    threshold: 0.8
+    usage_pattern:
+      distribution: randint
+      params:
+      - 4000000
+      - 800000000
+  urllc:
+    bandwidth_guaranteed: 5
+    bandwidth_max: 1000000
+    client_weight: 0.2
+    delay_tolerance: 1
+    latency_weight: 0.95
+    qos_class: 1
+    resource_reservation: 0.2
+    threshold: 0.9
+    usage_pattern:
+      distribution: randint
+      params:
+      - 100000
+      - 300000
+test_scenarios:
+  baseline:
+    dynamic_allocation: false
+    handover_optimization: false
+  congestion:
+    client_multiplier: 2.0
+    dynamic_allocation: true
+    handover_optimization: true
+  optimized:
+    dynamic_allocation: true
+    handover_optimization: true

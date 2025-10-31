@@ -1,0 +1,373 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --accent-color: #e74c3c;
+    --dark-color: #2c3e50;
+    --light-color: #ecf0f1;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.header {
+    background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+    color: white;
+    padding: 2rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-title {
+    font-weight: 700;
+}
+
+.nav-pills .nav-link {
+    color: var(--dark-color);
+    border-radius: 0;
+    padding: 0.8rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.nav-pills .nav-link.active {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    font-weight: 600;
+    padding: 1rem;
+}
+
+.card-header.urllc {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.card-header.iot {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.card-header.data {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.card-img-top {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.card-img-top:hover {
+    opacity: 0.9;
+}
+
+.kpi-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    height: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.kpi-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #777;
+    margin-bottom: 0.3rem;
+}
+
+.kpi-value {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.kpi-improvement {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.improvement-positive {
+    color: var(--secondary-color);
+}
+
+.improvement-negative {
+    color: var(--accent-color);
+}
+
+.summary-section {
+    background-color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.recommendation-card {
+    border-left: 4px solid var(--primary-color);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: rgba(52, 152, 219, 0.05);
+}
+
+.recommendation-card.urllc {
+    border-left-color: var(--accent-color);
+    background-color: rgba(231, 76, 60, 0.05);
+}
+
+.recommendation-card.iot {
+    border-left-color: var(--secondary-color);
+    background-color: rgba(46, 204, 113, 0.05);
+}
+
+.recommendation-card.data {
+    border-left-color: var(--primary-color);
+    background-color: rgba(52, 152, 219, 0.05);
+}
+
+.recommendation-card h5 {
+    color: var(--dark-color);
+    font-weight: 600;
+}
+
+.slice-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.5rem;
+    color: white;
+}
+
+.slice-icon.urllc {
+    background-color: var(--accent-color);
+}
+
+.slice-icon.iot {
+    background-color: var(--secondary-color);
+}
+
+.slice-icon.data {
+    background-color: var(--primary-color);
+}
+
+.capability-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    height: 100%;
+}
+
+.capability-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.capability-card h4 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--dark-color);
+}
+
+.capability-card ul {
+    padding-left: 1.2rem;
+}
+
+.capability-card li {
+    margin-bottom: 0.5rem;
+}
+
+.feature {
+    display: flex;
+    margin-bottom: 1.2rem;
+}
+
+.feature-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(52, 152, 219, 0.1);
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+
+.feature-content h5 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.feature-content p {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+.audience-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    height: 100%;
+}
+
+.audience-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--dark-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.audience-card h4 {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--dark-color);
+}
+
+.audience-card h5 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.audience-card ul {
+    padding-left: 1.2rem;
+}
+
+.audience-card li {
+    margin-bottom: 0.5rem;
+}
+
+.use-case-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    height: 100%;
+    text-align: center;
+}
+
+.use-case-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin: 0 auto 1rem;
+}
+
+.use-case-card h5 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.use-case-card p {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+.comparison-table th {
+    background-color: var(--dark-color);
+    color: white;
+}
+
+.comparison-table .parameter-name {
+    font-weight: 600;
+}
+
+.conclusion-point {
+    background-color: rgba(44, 62, 80, 0.05);
+    border-radius: 10px;
+    padding: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.conclusion-point h5 {
+    font-weight: 600;
+}
+
+.footer {
+    background-color: var(--dark-color);
+    color: white;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+.footer h4, .footer h5 {
+    margin-bottom: 1.2rem;
+}
+
+.footer a {
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.purpose-diagram {
+    height: 100%;
+}
+
+.purpose-diagram .card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.feature-list li {
+    margin-bottom: 0.8rem;
+}

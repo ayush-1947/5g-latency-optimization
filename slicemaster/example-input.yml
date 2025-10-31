@@ -1,0 +1,190 @@
+settings:
+  simulation_time: 100
+  num_clients: 1000
+  limit_closest_base_stations: 7
+  # Latency-specific settings
+  latency_tracking: true
+  dynamic_allocation: true
+  handover_optimization: true
+  predictive_allocation: true
+  statistics_params:
+    warmup_ratio: 0.05
+    cooldown_ratio: 0.05
+    # Statistic collection will be in this area of the coordinate system
+    x:
+      min: 0
+      max: 1980
+    y:
+      min: 0
+      max: 1980
+  logging: False
+  log_file: output.txt
+  
+  plotting_params:
+    plotting: True # plot the statistics after execution
+    plot_save: True # save plot as image
+    plot_show: True # show plot after execution
+    plot_file: output.png # name of the plot image
+    plot_file_dpi: 1000 # dots per inch for plot image
+    scatter_size: 15  
+    latency_heatmap: True # add heatmap visualization of latency distribution
+  
+slices:
+  iot:
+    delay_tolerance: 10
+    qos_class: 2
+    bandwidth_guaranteed: 10
+    bandwidth_max: 10000000
+    client_weight: 0.5
+    threshold: 0.8
+    latency_weight: 0.8  # Prioritize latency over throughput
+    resource_reservation: 0.1  # Reserve 10% of capacity for urgent traffic
+    usage_pattern:
+      distribution: randint # distribution name
+      params: # distribution parameters
+        - 4000000 # min value for this example
+        - 800000000 # max value for this example
+  data:
+    delay_tolerance: 2000
+    qos_class: 4
+    bandwidth_guaranteed: 1000
+    bandwidth_max: 50000000
+    client_weight: 0.5
+    threshold: 0.87
+    latency_weight: 0.2  # Prioritize throughput over latency
+    resource_reservation: 0.05  # Reserve 5% of capacity for consistent service
+    usage_pattern:
+      distribution: randint # distribution name
+      params: # distribution parameters
+        - 4000000 # min value for this example
+        - 800000000 # max value for this example
+  # New slice for ultra-low latency applications
+  urllc:
+    delay_tolerance: 1
+    qos_class: 1
+    bandwidth_guaranteed: 5
+    bandwidth_max: 1000000
+    client_weight: 0.2
+    threshold: 0.9
+    latency_weight: 0.95  # Extreme prioritization of latency
+    resource_reservation: 0.2  # High resource reservation for critical traffic
+    usage_pattern:
+      distribution: randint
+      params:
+        - 100000
+        - 300000
+
+base_stations:
+  - x: 0
+    y: 0
+    coverage: 600
+    capacity_bandwidth: 1000000
+    ratios:
+      iot: 0.4
+      data: 0.5
+      urllc: 0.1
+  - x: 1000
+    y: 500
+    coverage: 700
+    capacity_bandwidth: 1400000
+    ratios:
+      iot: 0.2
+      data: 0.7
+      urllc: 0.1
+  - x: -500
+    y: -500
+    coverage: 500
+    capacity_bandwidth: 700000
+    ratios:
+      iot: 0.24
+      data: 0.66
+      urllc: 0.1
+  - x: -750
+    y: 850
+    coverage: 800
+    capacity_bandwidth: 1200000
+    ratios:
+      iot: 0.10
+      data: 0.8
+      urllc: 0.1
+  - x: 450
+    y: -950
+    coverage: 900
+    capacity_bandwidth: 1000000
+    ratios:
+      iot: 0.20
+      data: 0.7
+      urllc: 0.1
+  - x: -1300
+    y: -1300
+    coverage: 400
+    capacity_bandwidth: 120000
+    ratios:
+      iot: 0.01
+      data: 0.89
+      urllc: 0.1
+  - x: 1100
+    y: 1300
+    coverage: 357
+    capacity_bandwidth: 100000
+    ratios:
+      iot: 0.50
+      data: 0.4
+      urllc: 0.1
+
+mobility_patterns:
+  normal_btw_0_1000:
+    distribution: normal
+    params:
+      - 0
+      - 1
+    client_weight: 0.5
+  basic:
+    distribution: randint
+    params:
+      - -1
+      - 1
+    client_weight: 0.3
+  high_mobility:
+    distribution: normal
+    params:
+      - 0
+      - 3
+    client_weight: 0.2
+
+clients:
+  location:
+    x:
+      distribution: normal
+      params:
+        - 0
+        - 600
+    y:
+      distribution: normal
+      params:
+        - 0
+        - 600
+  usage:
+    distribution: randint
+    params:
+      - 0
+      - 100000
+  usage_frequency:
+    distribution: randint
+    params:
+      - 0
+      - 100000
+    divide_scale: 1000000
+
+# Test scenarios for latency analysis
+test_scenarios:
+  baseline:
+    dynamic_allocation: false
+    handover_optimization: false
+  optimized:
+    dynamic_allocation: true
+    handover_optimization: true
+  congestion:
+    client_multiplier: 2.0
+    dynamic_allocation: true
+    handover_optimization: true

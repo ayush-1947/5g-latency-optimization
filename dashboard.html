@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5G Network Slicing Optimization Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header mb-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1 class="dashboard-title">5G Network Slicing Optimization</h1>
+                    <p class="mb-0">Dynamic resource allocation for enhanced latency performance</p>
+                </div>
+                <div class="col-md-4 text-end">
+                    <div class="btn-group">
+                        <button class="btn btn-light" onclick="printDashboard()">
+                            <i class="fas fa-print me-2"></i> Print
+                        </button>
+                        <button class="btn btn-light" onclick="exportToPDF()">
+                            <i class="fas fa-file-pdf me-2"></i> Export
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Navigation Tabs -->
+        <ul class="nav nav-pills mb-4" id="dashboardTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="overview-tab" data-bs-toggle="tab" data-bs-target="#overview" type="button" role="tab" aria-controls="overview" aria-selected="true">
+                    <i class="fas fa-home me-2"></i> Overview
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="purpose-tab" data-bs-toggle="tab" data-bs-target="#purpose" type="button" role="tab" aria-controls="purpose" aria-selected="false">
+                    <i class="fas fa-bullseye me-2"></i> Purpose
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="existing-tab" data-bs-toggle="tab" data-bs-target="#existing" type="button" role="tab" aria-controls="existing" aria-selected="false">
+                    <i class="fas fa-history me-2"></i> Existing Solutions
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="capabilities-tab" data-bs-toggle="tab" data-bs-target="#capabilities" type="button" role="tab" aria-controls="capabilities" aria-selected="false">
+                    <i class="fas fa-cogs me-2"></i> Capabilities
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="audience-tab" data-bs-toggle="tab" data-bs-target="#audience" type="button" role="tab" aria-controls="audience" aria-selected="false">
+                    <i class="fas fa-users me-2"></i> Target Audience
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="results-tab" data-bs-toggle="tab" data-bs-target="#results" type="button" role="tab" aria-controls="results" aria-selected="false">
+                    <i class="fas fa-chart-line me-2"></i> Results
+                </button>
+            </li>
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="tab-content" id="dashboardTabContent">
+            <!-- Overview Tab -->
+            <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="summary-section">
+                            <h2>5G Network Slicing Optimization</h2>
+                            <p class="lead">This project implements advanced resource allocation strategies for 5G network slices to optimize latency performance while ensuring efficient resource utilization.</p>
+                            
+                            <div class="row mt-4">
+                                <div class="col-md-7">
+                                    <div class="card">
+                                        <img src="images/optimization_summary.png" alt="Optimization Summary" class="card-img-top" onclick="openImageModal('Optimization Summary', 'images/optimization_summary.png')">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Optimization Results Overview</h5>
+                                            <p class="card-text">Comprehensive visualization showing resource allocation, latency improvements, and SLA compliance across all network slices.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="kpi-card mb-3">
+                                        <div class="kpi-title">OVERALL LATENCY IMPROVEMENT</div>
+                                        <div class="kpi-value" id="overall-latency-improvement">7.2%</div>
+                                        <div class="kpi-improvement improvement-positive">
+                                            <i class="fas fa-arrow-down me-1"></i> From 0.477ms to 0.443ms
+                                        </div>
+                                    </div>
+                                    <div class="kpi-card">
+                                        <div class="kpi-title">RESOURCE UTILIZATION IMPROVEMENT</div>
+                                        <div class="kpi-value" id="resource-utilization-improvement">12.5%</div>
+                                        <div class="kpi-improvement improvement-positive">
+                                            <i class="fas fa-arrow-up me-1"></i> Better resource sharing
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- More overview content, key findings, etc. -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Purpose Tab -->
+            <div class="tab-pane fade" id="purpose" role="tabpanel" aria-labelledby="purpose-tab">
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="summary-section">
+                            <h2><i class="fas fa-bullseye text-primary me-2"></i>Project Purpose</h2>
+                            <p class="lead">Our project addresses the critical challenge of optimizing resource allocation in 5G networks to improve latency performance while maintaining efficient resource utilization.</p>
+                            
+                            <!-- Purpose content -->
+                            <div class="row mt-4">
+                                <div class="col-md-6">
+                                    <h4>The Challenge</h4>
+                                    <p>5G networks promise ultra-low latency, high bandwidth, and support for massive connectivity. However, these requirements often conflict:</p>
+                                    <ul class="feature-list">
+                                        <li><strong>Resource Competition:</strong> Multiple services compete for limited network resources</li>
+                                        <li><strong>Diverse Service Requirements:</strong> Different applications have varying latency, bandwidth, and reliability needs</li>
+                                        <li><strong>Dynamic Network Conditions:</strong> User mobility and varying traffic patterns create constantly changing demands</li>
+                                        <li><strong>Efficiency vs. Performance:</strong> Static resource allocation is inefficient, while dynamic allocation risks SLA violations</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card purpose-diagram">
+                                        <img src="images/challenge_diagram.png" class="card-img-top" alt="5G Network Challenges">
+                                        <div class="card-body">
+                                            <h5 class="card-title">The 5G Resource Allocation Challenge</h5>
+                                            <p class="card-text">Network slicing creates virtual networks tailored to specific use cases, but optimal resource allocation remains challenging.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- More purpose content -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other tabs follow the same pattern... -->
+            
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>5G Network Slicing Optimization</h4>
+                    <p>A comprehensive framework for optimizing resource allocation in 5G networks through dynamic slicing strategies.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Resources</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">GitHub Repository</a></li>
+                        <li><a href="#">Research Paper</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Related Projects</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">5G Simulation Framework</a></li>
+                        <li><a href="#">Network Slicing Standards</a></li>
+                        <li><a href="#">Mobile Edge Computing</a></li>
+                        <li><a href="#">6G Research</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p>&copy; 2025 5G Network Slicing Project. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Image Modal -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="imageModalLabel">Image Preview</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img id="modalImage" src="" class="img-fluid" alt="Modal Image">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
